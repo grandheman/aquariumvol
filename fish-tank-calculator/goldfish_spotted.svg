@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60">
+  <!-- Tail Fin -->
+  <path d="M25,30 Q10,10 5,0 Q2,15 8,30 Q2,45 5,60 Q10,50 25,30 Z" fill="#FFFFFF" opacity="0.9" />
+  
+  <!-- Top Fin -->
+  <path d="M55,10 Q50,-5 35,10 Z" fill="#FFFFFF" opacity="0.9" />
+  
+  <!-- Bottom Fin -->
+  <path d="M50,50 Q45,65 35,50 Z" fill="#FFFFFF" opacity="0.9" />
+  
+  <!-- Body -->
+  <ellipse cx="50" cy="30" rx="35" ry="22" fill="#F0F0F0" />
+  
+  <!-- Orange Spots -->
+  <circle cx="45" cy="25" r="8" fill="#FF8C00" opacity="0.8" />
+  <circle cx="65" cy="35" r="6" fill="#FF8C00" opacity="0.8" />
+  <ellipse cx="35" cy="35" rx="5" ry="3" fill="#FF8C00" opacity="0.8" />
+  <path d="M55,15 Q60,10 65,15 Q60,20 55,15" fill="#FF8C00" opacity="0.8" />
+
+  <!-- Side Fin -->
+  <path d="M50,30 Q55,40 40,35 Z" fill="#FFFFFF" opacity="0.8" />
+  
+  <!-- Eye -->
+  <circle cx="70" cy="25" r="4" fill="white" />
+  <circle cx="71" cy="25" r="2" fill="black" />
+  <circle cx="69" cy="23" r="1.5" fill="white" opacity="0.6" />
+  
+  <!-- Mouth -->
+  <path d="M80,35 Q75,38 80,41" fill="none" stroke="#D35400" stroke-width="1.5" stroke-linecap="round" />
+</svg>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquariumVol.com - Fish Tank Volume Calculator</title>
+    <meta name="description"
+        content="Accurate Fish Tank Volume Calculator by AquariumVol.com. Convert dimensions to gallons and liters easily. Perfect for aquarists setting up new aquariums.">
+    <meta name="keywords"
+        content="fish tank calculator, aquarium volume, gallons calculation, liters calculation, tank size">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="AquariumVol.com - Fish Tank Volume Calculator">
+    <meta property="og:description" content="Calculate your aquarium volume instantly in gallons and liters.">
+    <meta property="og:type" content="website">
+</head>
+
+<body>
+    <div class="ocean-bg"></div>
+    <div class="bubble-container">
+        <div class="bubble x1"></div>
+        <div class="bubble x2"></div>
+        <div class="bubble x3"></div>
+        <div class="bubble x4"></div>
+        <div class="bubble x5"></div>
+    </div>
+
+    <!-- Friendly Fish Animation -->
+    <div class="fish-container">
+        <img src="goldfish.svg" class="fish fish-1" alt="">
+        <img src="goldfish_spotted.svg" class="fish fish-2" alt="">
+    </div>
+
+    <main class="container">
+        <header class="header">
+            <h1>AquariumVol.com</h1>
+            <p class="subtitle">Accurately calculate your aquarium water volume</p>
+        </header>
+
+        <section class="calculator-card glass-panel">
+            <div class="input-group">
+                <label for="unit-select">Unit System</label>
+                <div class="toggle-container">
+                    <button class="toggle-btn active" id="btn-imperial" onclick="setUnit('imperial')">Imperial
+                        (Inches)</button>
+                    <button class="toggle-btn" id="btn-metric" onclick="setUnit('metric')">Metric (CM)</button>
+                </div>
+            </div>
+
+            <div class="dimensions-grid">
+                <div class="input-wrapper">
+                    <label for="length">Length</label>
+                    <div class="control-row">
+                        <div class="field-container">
+                            <input type="number" id="length" placeholder="0" min="0" step="any" value="12">
+                            <span class="unit-label" id="label-length">in</span>
+                        </div>
+                        <div class="spinner-column">
+                            <button class="spin-btn up" onclick="adjustValue('length', 1)"
+                                aria-label="Increase Length">▲</button>
+                            <button class="spin-btn down" onclick="adjustValue('length', -1)"
+                                aria-label="Decrease Length">▼</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-wrapper">
+                    <label for="width">Width</label>
+                    <div class="control-row">
+                        <div class="field-container">
+                            <input type="number" id="width" placeholder="0" min="0" step="any" value="6.5">
+                            <span class="unit-label" id="label-width">in</span>
+                        </div>
+                        <div class="spinner-column">
+                            <button class="spin-btn up" onclick="adjustValue('width', 1)"
+                                aria-label="Increase Width">▲</button>
+                            <button class="spin-btn down" onclick="adjustValue('width', -1)"
+                                aria-label="Decrease Width">▼</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-wrapper">
+                    <label for="height">Height</label>
+                    <div class="control-row">
+                        <div class="field-container">
+                            <input type="number" id="height" placeholder="0" min="0" step="any" value="9">
+                            <span class="unit-label" id="label-height">in</span>
+                        </div>
+                        <div class="spinner-column">
+                            <button class="spin-btn up" onclick="adjustValue('height', 1)"
+                                aria-label="Increase Height">▲</button>
+                            <button class="spin-btn down" onclick="adjustValue('height', -1)"
+                                aria-label="Decrease Height">▼</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-area">
+                <div class="result-item">
+                    <span class="result-label">Volume (US Gallons)</span>
+                    <span class="result-value" id="res-gallons">0.0</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Volume (Liters)</span>
+                    <span class="result-value" id="res-liters">0.0</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: Substrate / Gravel -->
+        <section class="content-section glass-panel">
+            <h2>1. Substrate & Gravel Guide</h2>
+            <div class="info-block">
+                <p>The foundation of your tank. A depth of <strong>2-3 inches</strong> is generally recommended for
+                    aesthetics and rooting plants.</p>
+                <div class="dynamic-recommendation">
+                    <span class="rec-icon">🪨</span>
+                    <div class="rec-text">
+                        <strong>Estimated Gravel Needed:</strong>
+                        <span id="rec-gravel-amount" class="highlight-value">--</span> lbs
+                        <span class="sub-text">(based on 1.5 lbs/gallon rule)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-grid" id="substrate-products">
+                <!-- Products loaded via JS -->
+            </div>
+        </section>
+
+        <!-- Section 2: Filtration -->
+        <section class="content-section glass-panel">
+            <h2>2. Filtration & Pumps</h2>
+            <div class="info-block">
+                <p>Crystal clear water requires good turnover. You should aim for a filter that cycles your total water
+                    volume <strong>4-6 times per hour</strong>.</p>
+                <div class="dynamic-recommendation">
+                    <span class="rec-icon">🌪️</span>
+                    <div class="rec-text">
+                        <strong>Recommended Flow Rate:</strong>
+                        <span id="rec-filter-rate" class="highlight-value">--</span> GPH
+                        <span class="sub-text">(Gallons Per Hour)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-grid" id="filtration-products">
+                <!-- Products loaded via JS -->
+            </div>
+        </section>
+
+        <!-- Section 3: Heating -->
+        <section class="content-section glass-panel">
+            <h2>3. Heaters & Temperature</h2>
+            <div class="info-block">
+                <p>Tropical fish need stable temperatures (usually 75°F - 80°F). A general rule is <strong>3-5 watts per
+                        gallon</strong> of water.</p>
+                <div class="dynamic-recommendation">
+                    <span class="rec-icon">🌡️</span>
+                    <div class="rec-text">
+                        <strong>Recommended Heater Size:</strong>
+                        <span id="rec-heater-watt" class="highlight-value">--</span> Watts
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-grid" id="heating-products">
+                <!-- Products loaded via JS -->
+            </div>
+        </section>
+
+        <!-- Section 4: Chemicals & Maintenance -->
+        <section class="content-section glass-panel">
+            <h2>4. Water Chemistry</h2>
+            <div class="info-block">
+                <p>Before adding fish, you must cycle your tank. Essential chemicals include water conditioner
+                    (dechlorinator) and beneficial bacteria.</p>
+            </div>
+
+            <div class="product-grid" id="water_chemistry-products">
+                <!-- Products loaded via JS -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 AquariumVol.com. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

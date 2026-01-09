@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60">
+  <!-- Tail Fin -->
+  <path d="M25,30 Q10,10 5,0 Q2,15 8,30 Q2,45 5,60 Q10,50 25,30 Z" fill="#FF6347" />
+  
+  <!-- Top Fin -->
+  <path d="M55,10 Q50,-5 35,10 Z" fill="#FF6347" />
+  
+  <!-- Bottom Fin -->
+  <path d="M50,50 Q45,65 35,50 Z" fill="#FF6347" />
+  
+  <!-- Body -->
+  <ellipse cx="50" cy="30" rx="35" ry="22" fill="#FFD700" />
+  
+  <!-- Side Fin -->
+  <path d="M50,30 Q55,40 40,35 Z" fill="#FFA500" opacity="0.8" />
+  
+  <!-- Eye -->
+  <circle cx="70" cy="25" r="4" fill="white" />
+  <circle cx="71" cy="25" r="2" fill="black" />
+  <circle cx="69" cy="23" r="1.5" fill="white" opacity="0.6" />
+  
+  <!-- Mouth -->
+  <path d="M80,35 Q75,38 80,41" fill="none" stroke="#D35400" stroke-width="1.5" stroke-linecap="round" />
+  
+  <!-- Scales detail -->
+  <path d="M55,20 Q50,20 50,25" fill="none" stroke="#FFA500" stroke-width="1" opacity="0.5" />
+  <path d="M45,20 Q40,20 40,25" fill="none" stroke="#FFA500" stroke-width="1" opacity="0.5" />
+  <path d="M60,30 Q55,30 55,35" fill="none" stroke="#FFA500" stroke-width="1" opacity="0.5" />
+  <path d="M50,30 Q45,30 45,35" fill="none" stroke="#FFA500" stroke-width="1" opacity="0.5" />
+</svg>
